@@ -1,6 +1,13 @@
 from typing import List, Optional, Tuple, Union
 
-from kivy.properties import BooleanProperty, ListProperty, NumericProperty, OptionProperty, ReferenceListProperty, StringProperty
+from kivy.properties import (
+    BooleanProperty,
+    ListProperty,
+    NumericProperty,
+    OptionProperty,
+    ReferenceListProperty,
+    StringProperty,
+)
 from kivy.uix.widget import Widget
 
 AnyNumber = Union[int, float]
@@ -19,9 +26,14 @@ class Label(Widget):
     text: StringProperty
     text_size: ListProperty[int]
 
-    def __init__(self,
-                 text: Optional[str] = '',
-                 font_size: Optional[Union[str, int, float]] = '15sp',
-                 markup: Optional[bool] = False,
-                 halign: Optional[str] = 'left',
-                 color: Optional[Tuple[AnyNumber, AnyNumber, AnyNumber, AnyNumber]] = (1, 1, 1, 1)) -> None: ...
+    def __init__(
+        self,
+        text: Optional[str] = "",
+        font_size: Optional[Union[str, int, float]] = "15sp",
+        markup: Optional[bool] = False,
+        halign: Optional[str] = "left",
+        color: Optional[Tuple[AnyNumber, AnyNumber, AnyNumber, AnyNumber]] = (1, 1, 1, 1),
+        size_hint: Optional[Tuple[float | None, float | None]] = (None, None),
+        height: Optional[int] = None,
+        width: Optional[int] = None,
+    ) -> None: ...

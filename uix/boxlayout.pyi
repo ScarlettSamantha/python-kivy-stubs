@@ -4,6 +4,7 @@ from typing import Optional, Tuple
 from kivy.uix.label import Label
 from kivy.uix.layout import Layout
 from kivy.properties import NumericProperty, ReferenceListProperty, StringProperty
+from kivy.graphics.instructions import Canvas
 
 class BoxLayout(Layout):
     minimum_width: NumericProperty
@@ -11,8 +12,14 @@ class BoxLayout(Layout):
     minimum_size: ReferenceListProperty[Tuple[int, int]]
     orientation: StringProperty
     spacing: NumericProperty
+    canvas: Canvas
 
-    def __init__(self, orientation: Optional[str] = "horizontal", spacing: Optional[int] = 10) -> None: ...
+    def __init__(
+        self,
+        orientation: Optional[str] = "horizontal",
+        spacing: Optional[int] = 10,
+        padding: Optional[Tuple[int, int]] = None,
+    ) -> None: ...
     def add_widget(self, widget: Layout | Widget | Label, *args, **kwargs) -> None: ...
     def remove_widget(self, widget: Layout | Widget | Label, *args, **kwargs) -> None: ...
     def bind(self, **kwargs) -> None: ...
