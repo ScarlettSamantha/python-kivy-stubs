@@ -4,6 +4,9 @@ from kivy.uix.label import Label
 from typing import Callable, Optional, Tuple
 
 class Button(Label):
+    on_press: Optional[Callable]
+    on_release: Optional[Callable]
+
     def bind(
         self,
         on_release: Optional[Callable] = None,

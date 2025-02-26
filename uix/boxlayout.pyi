@@ -1,5 +1,5 @@
 from tkinter import Widget
-from typing import Optional, Tuple
+from typing import Dict, Optional, Tuple
 
 from kivy.uix.label import Label
 from kivy.uix.layout import Layout
@@ -19,8 +19,12 @@ class BoxLayout(Layout):
         orientation: Optional[str] = "horizontal",
         spacing: Optional[int] = 10,
         padding: Optional[Tuple[int, int]] = None,
+        size_hint: Optional[Tuple[float, float]] = None,
+        pos_hint: Optional[Dict[str, float | int]] = None,
     ) -> None: ...
     def add_widget(self, widget: Layout | Widget | Label, *args, **kwargs) -> None: ...
-    def remove_widget(self, widget: Layout | Widget | Label, *args, **kwargs) -> None: ...
+    def remove_widget(
+        self, widget: Layout | Widget | Label, *args, **kwargs
+    ) -> None: ...
     def bind(self, **kwargs) -> None: ...
     def fbind(self, **kwargs) -> None: ...
