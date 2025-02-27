@@ -1,6 +1,6 @@
-from tkinter import Widget
 from typing import Dict, Optional, Tuple
 
+from kivy.uix.widget import Widget
 from kivy.uix.label import Label
 from kivy.uix.layout import Layout
 from kivy.properties import NumericProperty, ReferenceListProperty, StringProperty
