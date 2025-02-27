@@ -1,4 +1,4 @@
-from typing import List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 from kivy.properties import (
     BooleanProperty,
@@ -32,8 +32,18 @@ class Label(Widget):
         font_size: Optional[Union[str, int, float]] = "15sp",
         markup: Optional[bool] = False,
         halign: Optional[str] = "left",
-        color: Optional[Tuple[AnyNumber, AnyNumber, AnyNumber, AnyNumber]] = (1, 1, 1, 1),
+        valign: Optional[str] = "middle",
+        padding: Optional[Tuple[int, int]] = (0, 0),
+        color: Optional[Tuple[AnyNumber, AnyNumber, AnyNumber, AnyNumber]] = (
+            1,
+            1,
+            1,
+            1,
+        ),
         size_hint: Optional[Tuple[float | None, float | None]] = (None, None),
+        pos_hint: Optional[Dict[str, float]] = {},
         height: Optional[int] = None,
         width: Optional[int] = None,
+        text_size: Optional[Tuple[int, int]] = (0, 0),
+        **kwargs: Any,
     ) -> None: ...
