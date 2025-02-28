@@ -1,12 +1,12 @@
-from typing import Dict, Tuple
+from typing import Dict, Optional, Tuple
 from kivy.uix.layout import Layout
 
 class FloatLayout(Layout):
     def __init__(
         self,
-        size_hint: Tuple[float | None, float | None],
-        width: int,
-        height: int,
-        pos_hint: Dict[str, float],
+        size_hint: Optional[Tuple[float | None, float | None]],
+        width: Optional[int] = None,
+        height: Optional[int] = None,
+        pos_hint: Optional[Dict[str, float]] = None,
         **kwargs,
     ): ...
