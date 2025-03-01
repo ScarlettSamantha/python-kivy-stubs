@@ -44,10 +44,10 @@ class Widget(WidgetBase):
 
     def __init__(
         self,
-        size_hint_x: Numeric,
-        size_hint_y: Numeric,
-        height: int,
-        width: int,
+        size_hint_x: Optional[Numeric] = None,
+        size_hint_y: Optional[Numeric] = None,
+        height: Optional[int] = None,
+        width: Optional[int] = None,
         **kwargs,
     ) -> None: ...
     def add_widget(
