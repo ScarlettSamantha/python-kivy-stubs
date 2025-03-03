@@ -25,7 +25,7 @@ class BoxLayout(Layout):
         padding: Optional[
             Tuple[numeric, numeric] | Tuple[numeric, numeric, numeric, numeric]
         ] = None,
-        size_hint: Optional[Tuple[float, float | None]] = None,
+        size_hint: Optional[Tuple[float | None, float | None]] = None,
         pos_hint: Optional[Dict[str, float | int]] = None,
     ) -> None: ...
     def add_widget(self, widget: Layout | Widget | Label, *args, **kwargs) -> None: ...
