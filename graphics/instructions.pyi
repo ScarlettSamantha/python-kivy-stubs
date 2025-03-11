@@ -1,6 +1,7 @@
 from typing import Any, Callable, Union
 
-class Instruction: pass
+class Instruction:
+    pass
 
 class InstructionGroup(Instruction):
     def add(self, instruction: Instruction) -> None: ...
@@ -8,13 +9,17 @@ class InstructionGroup(Instruction):
     def insert(self, index: int, instruction: Instruction) -> None: ...
     def remove(self, instruction: Instruction) -> None: ...
     def remove_group(self, name) -> None: ...
+    def __enter__(self) -> None: ...
+    def __exit__(self, exc_type, exc_value, traceback) -> None: ...
 
-class ContextInstruction(Instruction): pass
+class ContextInstruction(Instruction):
+    pass
 
 class VertexInstruction(Instruction):
     source: str
 
-class CanvasBase(InstructionGroup): pass
+class CanvasBase(InstructionGroup):
+    pass
 
 class Canvas(CanvasBase):
     after: InstructionGroup
