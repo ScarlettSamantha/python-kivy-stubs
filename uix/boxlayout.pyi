@@ -16,6 +16,7 @@ class BoxLayout(Layout):
     orientation: StringProperty
     spacing: NumericProperty
     canvas: Canvas
+    children: Tuple[Widget, ...]
 
     def __init__(
         self,
