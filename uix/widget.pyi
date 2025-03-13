@@ -28,7 +28,7 @@ class Widget(WidgetBase):
     pos_hint: ObjectProperty[Dict[str, float]]
     right: AliasProperty[int]
     size: ReferenceListProperty[Tuple[int, int]] | Tuple[int, int]
-    size_hint: ReferenceListProperty[Tuple[float, float]]
+    size_hint: ReferenceListProperty[Tuple[float | None, float | None]]
     size_hint_min: ReferenceListProperty[Tuple[float, float]]
     size_hint_max: ReferenceListProperty[Tuple[float, float]]
     size_hint_x: NumericProperty
@@ -46,7 +46,7 @@ class Widget(WidgetBase):
         self,
         size_hint_x: Optional[Numeric] = None,
         size_hint_y: Optional[Numeric] = None,
-        size_hint: Optional[Tuple[Numeric, Numeric]] = None,
+        size_hint: Optional[Tuple[Numeric | None, Numeric | None]] = None,
         height: Optional[int] = None,
         width: Optional[int] = None,
         **kwargs,
