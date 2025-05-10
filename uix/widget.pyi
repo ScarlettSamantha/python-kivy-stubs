@@ -22,9 +22,9 @@ class Widget(WidgetBase):
     center_y: AliasProperty[int]
     center: ReferenceListProperty[Tuple[int, int]]
     disabled: BooleanProperty
-    height: NumericProperty
+    height: NumericProperty[int]
     id: StringProperty
-    opacity: NumericProperty
+    opacity: NumericProperty[float]
     parent: ObjectProperty["Widget"]
     pos: ReferenceListProperty[Any] | Tuple[Numeric, Numeric]
     pos_hint: ObjectProperty[Dict[str, float]]
@@ -51,10 +51,7 @@ class Widget(WidgetBase):
         size_hint: Optional[Tuple[Numeric | None, Numeric | None]] = None,
         height: Optional[int] = None,
         width: Optional[int] = None,
-        **kwargs,
-    ) -> None: ...
-    def add_widget(
-        self, widget: "Widget", index: Optional[int] = 0, canvas: Optional[str] = None
+        **kwargs: Any,
     ) -> None: ...
     def clear_widgets(self, children: Optional[List["Widget"]] = None) -> None: ...
     def collide_point(self, x: int, y: int) -> bool: ...
