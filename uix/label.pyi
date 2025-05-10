@@ -1,4 +1,4 @@
-from typing import Any, Dict, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 from kivy.properties import (
     BooleanProperty,
@@ -17,14 +17,14 @@ class Label(Widget):
     color: ListProperty[float]
     disabled_color: ListProperty[float]
     disabled_outline_color: ListProperty[float]
-    font_size: NumericProperty
+    font_size: NumericProperty[float]
     halign: OptionProperty[str]
     markup: BooleanProperty
-    padding_x: NumericProperty
-    padding_y: NumericProperty
+    padding_x: NumericProperty[float]
+    padding_y: NumericProperty[float]
     padding: ReferenceListProperty[Tuple[int, int]]
     text: StringProperty
-    text_size: ListProperty[int]
+    text_size: Union[List[int | None], Tuple[int | None, int | None]]
 
     def __init__(
         self,

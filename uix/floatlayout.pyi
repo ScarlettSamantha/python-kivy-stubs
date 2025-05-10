@@ -1,6 +1,7 @@
-from typing import Dict, Optional, Tuple
+from typing import Any, Dict, Optional, Tuple
 
 from kivy.graphics import Canvas
+from kivy.properties import ReferenceListProperty
 from kivy.uix.layout import Layout
 
 class FloatLayout(Layout):
@@ -12,5 +13,5 @@ class FloatLayout(Layout):
         width: Optional[int] = None,
         height: Optional[int] = None,
         pos_hint: Optional[Dict[str, float]] = None,
-        **kwargs,
+        **kwargs: Any,
     ): ...

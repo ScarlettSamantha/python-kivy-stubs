@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 from kivy.core.window import WindowBase
 from kivy.properties import (
@@ -9,6 +9,8 @@ from kivy.properties import (
     ReferenceListProperty,
     StringProperty,
 )
+
+from kivy.graphics import Canvas
 
 WindowType = Union["Widget", "WindowBase"]
 Numeric = Union[int, float]
@@ -24,34 +26,36 @@ class Widget(WidgetBase):
     id: StringProperty
     opacity: NumericProperty
     parent: ObjectProperty["Widget"]
-    pos: ReferenceListProperty[Tuple[Numeric, Numeric]]
+    pos: ReferenceListProperty[Any] | Tuple[Numeric, Numeric]
     pos_hint: ObjectProperty[Dict[str, float]]
     right: AliasProperty[int]
     size: ReferenceListProperty[Tuple[int, int]] | Tuple[int, int]
     size_hint: ReferenceListProperty[Tuple[float | None, float | None]]
     size_hint_min: ReferenceListProperty[Tuple[float, float]]
     size_hint_max: ReferenceListProperty[Tuple[float, float]]
-    size_hint_x: NumericProperty
-    size_hint_min_x: NumericProperty
-    size_hint_max_x: NumericProperty
-    size_hint_y: NumericProperty
-    size_hint_min_y: NumericProperty
-    size_hint_max_y: NumericProperty
+    size_hint_x: int | float | None
+    size_hint_min_x: NumericProperty[int]
+    size_hint_max_x: NumericProperty[int]
+    size_hint_y: int | float | None
+    size_hint_min_y: NumericProperty[int]
+    size_hint_max_y: NumericProperty[int] | None
     top: AliasProperty[int]
-    width: NumericProperty
-    x: NumericProperty
-    y: NumericProperty
+    width: NumericProperty[int]
+    x: int | float
+    y: int | float
 
     def __init__(
         self,
-        size_hint_x: Optional[Numeric] = None,
-        size_hint_y: Optional[Numeric] = None,
+        size_hint_x: int | float | None = None,
+        size_hint_y: int | float | None = None,
         size_hint: Optional[Tuple[Numeric | None, Numeric | None]] = None,
         height: Optional[int] = None,
         width: Optional[int] = None,
         **kwargs,
     ) -> None: ...
-    def add_widget(self, widget: "Widget", index: Optional[int] = 0, canvas: Optional[str] = None) -> None: ...
+    def add_widget(
+        self, widget: "Widget", index: Optional[int] = 0, canvas: Optional[str] = None
+    ) -> None: ...
     def clear_widgets(self, children: Optional[List["Widget"]] = None) -> None: ...
     def collide_point(self, x: int, y: int) -> bool: ...
     def collide_widget(self, wid: "Widget") -> bool: ...
@@ -59,8 +63,18 @@ class Widget(WidgetBase):
     def get_parent_window(self) -> WindowType: ...
     def get_root_window(self) -> WindowType: ...
     def remove_widget(self, widget: "Widget") -> None: ...
-    def to_local(self, x: Numeric, y: Numeric, relative: Optional[bool] = False) -> Tuple[Numeric, Numeric]: ...
-    def to_parent(self, x: Numeric, y: Numeric, relative: Optional[bool] = False) -> Tuple[Numeric, Numeric]: ...
-    def to_widget(self, x: Numeric, y: Numeric, relative: Optional[bool] = False) -> Tuple[Numeric, Numeric]: ...
-    def to_window(self, x: Numeric, y: Numeric, relative: Optional[bool] = False) -> Tuple[Numeric, Numeric]: ...
-    def bind(self, **kwargs) -> None: ...
+    def to_local(
+        self, x: Numeric, y: Numeric, relative: Optional[bool] = False
+    ) -> Tuple[Numeric, Numeric]: ...
+    def to_parent(
+        self, x: Numeric, y: Numeric, relative: Optional[bool] = False
+    ) -> Tuple[Numeric, Numeric]: ...
+    def to_widget(
+        self, x: Numeric, y: Numeric, relative: Optional[bool] = False
+    ) -> Tuple[Numeric, Numeric]: ...
+    def to_window(
+        self, x: Numeric, y: Numeric, relative: Optional[bool] = False
+    ) -> Tuple[Numeric, Numeric]: ...
+    def bind(self, **kwargs: Any) -> None: ...
+
+    def add_widget(self, widget: Widget, index: int=0, canvas: Optional[Canvas]=None) -> None: ...
