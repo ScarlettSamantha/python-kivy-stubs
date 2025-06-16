@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Any, Callable
 
 from kivy.clock import ClockBase
 
@@ -6,7 +6,7 @@ class Clock(ClockBase):
     def __init__(self) -> None: ...
     @classmethod
     def schedule_once(
-        cls, func: Callable[[Callable, float], int], timeout: float
+        cls, func: Callable[[Callable[Any, ...], float], int], timeout: float
     ) -> int: ...
     @classmethod
     def schedule_interval(

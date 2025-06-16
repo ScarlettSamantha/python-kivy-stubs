@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
 from kivy.graphics.instructions import Canvas
 from kivy.properties import NumericProperty, ReferenceListProperty, StringProperty
@@ -17,6 +17,7 @@ class BoxLayout(Layout):
     spacing: NumericProperty[float]
     canvas: Canvas
     children: Tuple[Widget, ...]
+    pos: Tuple[int, int] | ReferenceListProperty[Tuple[int, int]]
 
     def __init__(
         self,

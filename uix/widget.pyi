@@ -1,5 +1,6 @@
 from typing import Any, Dict, List, Optional, Tuple, Union
 
+from dill.pointers import children
 from kivy.core.window import WindowBase
 from kivy.properties import (
     AliasProperty,
@@ -25,7 +26,7 @@ class Widget(WidgetBase):
     height: NumericProperty[int]
     id: StringProperty
     opacity: NumericProperty[float]
-    parent: ObjectProperty["Widget"]
+    parent: ObjectProperty["Widget"] | "Widget"
     pos: ReferenceListProperty[Any] | Tuple[Numeric, Numeric]
     pos_hint: ObjectProperty[Dict[str, float]]
     right: AliasProperty[int]
@@ -43,6 +44,7 @@ class Widget(WidgetBase):
     width: NumericProperty[int]
     x: int | float
     y: int | float
+    children: List["Widget"]
 
     def __init__(
         self,
