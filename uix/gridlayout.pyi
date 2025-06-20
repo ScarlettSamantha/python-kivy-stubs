@@ -1,6 +1,6 @@
 from typing import Any
 
-from menus.kivy.mixins.collidable import Layout
+from kivy.uix.layout import Layout
 
 
 class GridLayout(Layout):
